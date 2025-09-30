@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maniac Magee Quote Activity</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f0f0f0; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { font-size: 24px; font-weight: bold; margin-bottom: 16px; }
+        h2 { font-size: 18px; font-weight: bold; margin-bottom: 8px; }
+        p { margin-bottom: 16px; }
+        label { display: block; margin-bottom: 8px; }
+        button { padding: 8px 16px; margin-top: 8px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        .draggable { padding: 8px; background-color: #e2e2e2; border-radius: 4px; cursor: move; display: inline-block; margin: 4px; }
+        .dropzone { min-height: 40px; border: 2px dashed #ccc; padding: 8px; margin-bottom: 8px; }
+        .correct { background-color: #d4edda; }
+        .incorrect { background-color: #f8d7da; }
+        .hidden { display: none; }
+        .feedback-correct { color: green; }
+        .feedback-incorrect { color: red; }
+        #completion-message { display: none; background-color: #d4edda; padding: 16px; border-radius: 4px; margin-top: 16px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Maniac Magee Quote Activity</h1>
+        <p>For each question, select the best quote. If correct, drag and drop the scrambled parts to form the MLA citation. A message will appear when you've completed all activities correctly (100%).</p>
+
+        <!-- Completion Message -->
+        <div id="completion-message">
+            <p class="feedback-correct">Congratulations! You've completed all activities (100%).</p>
+        </div>
+
+        <!-- Question 1 -->
+        <div id="q1">
+            <h2>1. Which quote best supports what happened to Maniac Magee’s parents?</h2>
+            <div>
+                <label><input type="radio" name="q1" value="a"> A: “On the way back home, they were on board when the P & W high-speed trolley into the city” (Spinelli 5).</label>
+                <label><input type="radio" name="q1" value="b"> B: “Maniac Magee was not born in a dump” (Spinelli 5).</label>
+                <label><input type="radio" name="q1" value="c"> C: “They lived in Holidaysburg, in the western part of Pennsylvania” (Spinelli 5).</label>
+                <label><input type="radio" name="q1" value="d"> D: “On the way back home, they were on board when the P & W had its famous crash” (Spinelli 5).</label>
+            </div>
+            <button onclick="checkAnswer(1, 'd')">Submit</button>
+            <p id="q1-feedback"></p>
+            <div id="q1-drag" class="hidden">
+                <h3>Drag the parts to form the correct MLA citation:</h3>
+                <div id="q1-dropzone" class="dropzone"></div>
+                <div id="q1-draggables">
+                    <div class="draggable" draggable="true">Spinelli</div>
+                    <div class="draggable" draggable="true">)</div>
+                    <div class="draggable" draggable="true">.</div>
+                    <div class="draggable" draggable="true">(</div>
+                    <div class="draggable" draggable="true">5</div>
+                    <div class="draggable" draggable="true">“On the way back home, they were on board when the P & W had its famous crash”</div>
+                </div>
+                <button onclick="checkCitation(1)">Check Citation</button>
+                <p id="q1-citation-feedback"></p>
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div id="q2">
+            <h2>2. Why did Jeffrey first approach Amanda Beale?</h2>
+            <div>
+                <label><input type="radio" name="q2" value="a"> A: “Are you running away?” (Spinelli 10).</label>
+                <label><input type="radio" name="q2" value="b"> B: “Books!” (Spinelli 11).</label>
+                <label><input type="radio" name="q2" value="c"> C: “Why are you taking all these books back to school?” (Spinelli 12).</label>
+                <label><input type="radio" name="q2" value="d"> D: “Just to read. To borrow” (Spinelli 12).</label>
+            </div>
+            <button onclick="checkAnswer(2, 'a')">Submit</button>
+            <p id="q2-feedback"></p>
+            <div id="q2-drag" class="hidden">
+                <h3>Drag the parts to form the correct MLA citation:</h3>
+                <div id="q2-dropzone" class="dropzone"></div>
+                <div id="q2-draggables">
+                    <div class="draggable" draggable="true">10</div>
+                    <div class="draggable" draggable="true">.</div>
+                    <div class="draggable" draggable="true">Spinelli</div>
+                    <div class="draggable" draggable="true">(</div>
+                    <div class="draggable" draggable="true">“Are you running away?”</div>
+                    <div class="draggable" draggable="true">)</div>
+                </div>
+                <button onclick="checkCitation(2)">Check Citation</button>
+                <p id="q2-citation-feedback"></p>
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div id="q3">
+            <h2>3. Which quote best supports the first appearance Jeffrey made that day after his encounter with Amanda?</h2>
+            <div>
+                <label><input type="radio" name="q3" value="a"> A: “Nobody laid a paw on him. When the kid got down to the soccer field, he turned and punted the ball” (Spinelli 14).</label>
+                <label><input type="radio" name="q3" value="b"> B: “
